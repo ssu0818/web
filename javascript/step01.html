@@ -47,16 +47,16 @@
         */
 
         let a1 = 10000;
-        // let a1 = 20000; //이중 선언 안됨
+        // let a1 = 20000; //이중 선언 안됨 --- Uncaught SyntaxError: Identifier 'a1' has already been declared
         console.log(a1);
 
 
         let a2 = 10;
         console.log(a2);
-        // let a2 = 10; //variable hoisting 안됨
+        // let a2 = 10; //variable hoisting 안됨 --- Uncaught SyntaxError: Identifier 'a2' has already been declared
 
         const d1 = 10;
-        // d1 = 20; 
+        // d1 = 20;  //Uncaught TypeError: Assignment to constant variable.
 
         const e1 = [1,2,3];
         e1.push(4);
