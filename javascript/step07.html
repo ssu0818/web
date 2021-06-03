@@ -1,0 +1,130 @@
+<!--step07.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+    
+</head>
+<body>
+    <!--alert(html) 복사+붙여넣기-->
+    <!-- <table><th>이름</th><th>나이</th><th>개인정보</th><th>powers</th><tr><td>Molecule Man</td><td>29</td><td>Dan Jukes</td><td>Radiation resistance  Turning tiny  Radiation blast  </td></tr><tr><td>Madame Uppercut</td><td>39</td><td>Jane Wilson</td><td>Million tonne punch  Damage resistance  Superhuman reflexes  </td></tr><tr><td>Eternal Flame</td><td>1000000</td><td>Unknown</td><td>Immortality  Heat Immunity  Inferno  Teleportation  Interdimensional travel  </td></tr></table> -->
+</body>
+<script>
+    const mem = {
+        num : 1,
+        "a-ddr" : '한국'
+    };
+    console.log(mem.num);
+    // console.log(mem.a-ddr); //error - Uncaught ReferenceError: ddr is not defined
+    console.log(mem['a-ddr']);
+
+    delete mem["a-ddr"]; //특정키 삭제
+    console.log(mem['a-ddr']); //undefined
+
+    const club = {
+    "squadName": "Super hero squad",
+    "homeTown": "Metro City",
+    "formed": 2016,
+    "secretBase": "Super tower",
+    "active": true,
+    "members": [
+        {
+            "name": "Molecule Man",
+            "age": 29,
+            "secretIdentity": "Dan Jukes",
+            "powers": [
+                "Radiation resistance",
+                "Turning tiny",
+                "Radiation blast"
+            ]
+        },
+        {
+            "name": "Madame Uppercut",
+            "age": 39,
+            "secretIdentity": "Jane Wilson",
+            "powers": [
+                "Million tonne punch",
+                "Damage resistance",
+                "Superhuman reflexes"
+            ]
+        },
+        {
+            "name": "Eternal Flame",
+            "age": 1000000,
+            "secretIdentity": "Unknown",
+            "powers": [
+                "Immortality",
+                "Heat Immunity",
+                "Inferno",
+                "Teleportation",
+                "Interdimensional travel"
+            ]
+        }
+]
+};
+
+let sname = club.squadName;
+let home = club.homeTown;
+let formed = club.formed;
+let secretBase = club.secretBase;
+let active = club.active;
+console.log(sname);
+console.log(home);
+console.log(formed);
+console.log(secretBase);
+console.log(active);
+
+const membersArray = club.members;
+
+let html ='<table>';
+    html += '<th>이름</th>';
+    html += '<th>나이</th>';
+    html += '<th>개인정보</th>';
+    html += '<th>powers</th>';
+
+    for(const memberObj of membersArray){
+        html += '<tr>';
+
+        html += '<td>';
+        let name = memberObj.name;
+        html += name+'</td>';
+
+        html += '<td>';
+        let age = memberObj.age;
+        html += age+'</td>';
+
+        html += '<td>';
+        let secretIdentity = memberObj.secretIdentity;
+        html += secretIdentity+'</td>';
+
+        html += '<td>';
+        const powersArray = memberObj.powers;
+        console.log(name,age,secretIdentity);
+        for(let power of powersArray){
+            console.log(power);
+            html += power+'  ';
+        }
+        html += '</td>';
+        html += '</tr>';
+    }
+    html += '</table>';
+    // alert(html);
+
+    document.body.innerHTML = html;
+
+    let str = '{"name":"sung","age":"12"}';
+    const member = JSON.parse(str); //문자열을 object로 변환
+    console.log(member.name);
+    console.log(member.age);
+    // alert(member); // [object Object]
+    console.log(member); 
+
+    let str2 = JSON.stringify(member);
+    // alert(str2); // {"name":"sung","age":"12"}
+    
+
+</script>
+</html>
