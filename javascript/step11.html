@@ -17,16 +17,17 @@
     <script>
         window.onload = function(){
             const divObj = document.getElementById('myBox');
+
             divObj.addEventListener("mouseover", function(){
                 this.style.backgroundColor = 'lightsteelblue';
             });
-            divObj.addEventListener("mouseout",function(){
+            divObj.addEventListener("mouseout", function(){
                 this.style.backgroundColor = 'white';
             });
-            divObj.addEventListener("mousedown",function(){
+            divObj.addEventListener("mousedown", function(){
                 this.style.backgroundColor = 'lightseagreen';
             });
-            divObj.addEventListener("mouseup",function(){
+            divObj.addEventListener("mouseup", function(){
                 this.style.backgroundColor = 'gray';
             });
         }

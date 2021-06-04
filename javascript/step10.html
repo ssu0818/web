@@ -13,7 +13,6 @@
 
         alert('after title');
         
-        
         window.onload = function(){
             alert('onload event');
             
@@ -25,8 +24,8 @@
 
             //Event Listener 방식(key event)
             document.getElementById("inputMsg")
-            .addEventListener("keydown",function(evnet){
-                if(event.keyCode == 13){
+            .addEventListener("keydown",function(event){
+                if(event.keyCode == 13){ //13 --> enter
                     alert(document.getElementById('inputMsg').value);
                     document.getElementById('inputMsg').value='';
                 }
