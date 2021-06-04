@@ -1,0 +1,53 @@
+<!--step10.html-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <script>
+        function send(){
+            alert('전송');
+        }
+
+        alert('after title');
+        
+        
+        window.onload = function(){
+            alert('onload event');
+            
+            //Event Listener 방식(click event)
+            document.getElementById("sendBtn")
+            .addEventListener("click",function(){
+                alert('전송2');
+            });
+
+            //Event Listener 방식(key event)
+            document.getElementById("inputMsg")
+            .addEventListener("keydown",function(evnet){
+                if(event.keyCode == 13){
+                    alert(document.getElementById('inputMsg').value);
+                    document.getElementById('inputMsg').value='';
+                }
+            });
+        }
+    
+        document.getElementById("inputMsg").focus();
+    
+    </script>
+</head>
+<body>
+    <!--inline event-->
+    <button onclick="javascript:send();">전송1</button>
+    <!--listener event-->
+    <button id="sendBtn">전송2</button>
+    <input text="text" id="inputMsg">
+
+</body>
+<!--
+<script>
+    alert('after body');
+</script>
+-->
+</html>
