@@ -1,0 +1,52 @@
+<!--step04.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery manipulation</title>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <style>
+        div {
+            border : 1px solid coral;   
+        }
+        p {
+            background-color: lightcyan;
+        }
+    </style>
+    <script>
+        $(function(){
+            // $('div').prepend('<strong> hi:) </strong>');
+            // $('<strong> hi:) </strong>').prependTo('div');
+
+            // $('div').append('<strong> hi:) </strong>');
+            // $('<strong> hi:) </strong>').appendTo('div');
+
+            // $('div').after('<strong> Bye </strong>');
+            // $('div').before('<strong> :D </strong>');
+
+            // $('p').text('<strong>제이쿼리</strong>');
+            // alert($('p').text()); //<strong>제이쿼리</strong>
+            // $('p').html('<strong>제이쿼리</strong>');
+            // alert($('p').html()); //<strong>제이쿼리</strong>
+            
+            $('p').remove();
+            $('div').append('<p>jquery!</p>');
+
+            // $('p').detach();
+            
+            // $('p').empty();
+            // $('p').empty().text('jquery');
+
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <p>jQuery</p>
+        <!-- <p>&lt;strong&gt;jQuery&lt;/strong&gt;</p> -->
+    </div>
+    
+</body>
+</html>

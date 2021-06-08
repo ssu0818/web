@@ -1,0 +1,48 @@
+<!--step01.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Get</title>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script>
+        const xhr = new XMLHttpRequest();
+        console.log(xhr);
+
+        $(function(){
+            $('#btn').click(function(){
+                let url = 'data.json';
+                xhr.open('GET',url,true); //true : 비동기식
+                xhr.send(null); //get 방식일 때는 매개변수에 null
+                xhr.onreadystatechange = function(){ //callback method : 자동으로 호출되는 함수
+                    if(xhr.readyState==4 && xhr.status==200){ //정상적으로 처리되었다면
+                        console.log(xhr.responseText);
+                        // console.log(typeof xhr.responseText); //string -- 문자열로 넘어와서 속도 빠름.
+                        let data = xhr.responseText;
+                        const json = JSON.parse(data); // 문자열을 오브젝트(javascript)로 바꿔줌
+                        const cafelistArray = json.cafelist;
+                        let html = "<ul>";
+                        for(const obj of cafelistArray){
+                            let name = obj.name;
+                            let clubid = obj.clubid;
+                            html += '<li>' +name+ '(' +clubid+ ') </li>'
+                        }
+                        html += "</ul>";
+                        
+                        $('#sel').append(html);
+                    }
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button id='btn'>가져오기</button>
+    <div id='sel'>
+
+    </div>
+</body>
+</html>
