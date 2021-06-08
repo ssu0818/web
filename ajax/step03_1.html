@@ -1,0 +1,43 @@
+<!--step03_1.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Json</title>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#btn').click(function(){
+                $.ajax({
+                    url : 'data.xml',
+                    type : 'GET',
+                    dataType : 'xml',
+                    error : function(){
+                        alert('error');
+                    },
+                    success : function(xml){
+                        $('#sel').empty();
+                        let html = "<ul>";
+                        $(xml).find('category').find('item').each(function(){  // $(xml).find('item').each()~~; xml구조상 category들어가고 item할 필요가 없음.
+                            let value = $(this).find('value').text();
+                            let title = $(this).find('title').text();
+                            html += "<li>" +value+ ", " +title+ "</li>";
+                        }); 
+                        html += "</ul>";
+                        $('#sel').append(html);
+                    }
+                }); //end of ajax
+            }); //end of button event
+        }); //end of onloading
+
+    </script>
+</head>
+<body>
+    <button id='btn'>가져오기</button>
+    <div id='sel'>
+
+    </div>
+</body>
+</html>

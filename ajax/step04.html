@@ -1,0 +1,39 @@
+<!--step04.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Jsonp</title>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script>
+        //jsonp 방식을 사용하기 위해서는 반드시 2가지 조건이 성립해야 한다.
+        //1. jsonp 형식으로 제공해야 한다.
+        //2. json 데이터만 사용가능.
+        function test(json){
+            let jsonStr = JSON.stringify(json); //json을 문자열로 바꿔줌
+            $('#sel').append(jsonStr);
+        }
+        
+        $(function(){
+            $('#btn').click(function(){
+                var dScript = document.createElement('script');
+                dScript.src = "http://www.acornacademy.co.kr/blockchain/naver_json.jsp?call=test"; //call=calljson이라면 위 function test를 calljson으로 바꿔야함
+                document.body.appendChild(dScript); //동적으로 생성
+            }); //end of button event
+        }); //end of onloading
+       </script>
+    
+    <!-- <script src="http://www.acornacademy.co.kr/blockchain/naver_json.jsp?call=test"></script> -->
+    <!-- <script>
+        test({"lastBuildDate": "Tue, 08 Jun 2021 11:15:34 +0900","total": 4485,"start": 1,"display": 10,"items": [{"title": "혼자 공부하는 <b>자바</b>","link": "http://book.naver.com/bookdb/book_detail.php?bid=15028693","image": "https://bookthumb-phinf.pstatic.net/cover/150/286/15028693.jpg?type=m1&udate=20200423","author": "신용권","price": "24000","discount": "21600","publisher": "한빛미디어","pubdate": "20190610","isbn": "116224187X 9791162241875","description": "1:1 과외하듯 배우는 <b>자바</b> 프로그래밍 자습서 (JAVA 8 &11 지원)\n이 책은 독학으로 <b>자바</b>를 배우는 입문자가 ‘꼭 필요한 내용을 제대로’ 학습할 수... 책의 첫 페이지를 펼쳐서 마지막 페이지를 덮을 때까지, 혼자서도 충분히 <b>자바</b>를 배울 수 있다는 자신감과 확신이 계속될 것이다!\n \n20명의 베타리더 검증으로... "},{"title": "Java의 정석 기초편","link": "http://book.naver.com/bookdb/book_detail.php?bid=16031391","image": "https://bookthumb-phinf.pstatic.net/cover/160/313/16031391.jpg?type=m1&udate=20200108","author": "남궁성","price": "25000","discount": "22500","publisher": "도우출판","pubdate": "20191230","isbn": "8994492046 9788994492049","description": "교육현장에서 뒤쳐지는 학생들을 위해 쓰고, 학생들에게 직접 검증받고 호평받은 책. 코딩을 처음 배우는 사람도 <b>자바</b>를 쉽게 배울수 있게 도와준다."},{"title": "이펙티브 <b>자바</b> (Effective Java)","link": "http://book.naver.com/bookdb/book_detail.php?bid=14097515","image": "https://bookthumb-phinf.pstatic.net/cover/140/975/14097515.jpg?type=m1&udate=20181023","author": "조슈아 블로크","price": "36000","discount": "32400","publisher": "인사이트","pubdate": "20181101","isbn": "8966262287 9788966262281","description": "<b>자바</b> 플랫폼 모범 사례 완벽 가이드 - JAVA 7, 8, 9 대응<b>자바</b> 6 출시 직후 출간된 『이펙티브 <b>자바</b> 2판』 이후로 <b>자바</b>는 커다란 변화를 겪었다. 그래서 졸트상에 빛나는 이 책도 <b>자바</b> 언어와 라이브러리의 최신 기능을 십분 활용하도록 내용 전반을 철저히 다시 썼다. 모던 <b>자바</b>가 여러 패러다임을... "},{"title": "모던 <b>자바</b>스크립트 핵심 가이드 (<b>자바</b>스크립트 기초부터 타입스크립트, ES2021까지 핵심만 쏙쏙)","link": "http://book.naver.com/bookdb/book_detail.php?bid=20488188","image": "https://bookthumb-phinf.pstatic.net/cover/204/881/20488188.jpg?type=m1&udate=20210531","author": "알베르토 몬탈레시","price": "19800","discount": "17820","publisher": "한빛미디어","pubdate": "20210531","isbn": "1162244283 9791162244289","description": "예제와 퀴즈로 만나는 ES6 이후 모던 <b>자바</b>스크립트의 새로운 세계\nES6 기준으로 <b>자바</b>스크립트 문법을 훑은 다음 ES2016부터 ES2021까지 새로 추가된... 수 있게 장마다 3~4개씩 퀴즈를 마련했고, 모던 웹 개발을 위한 타입스크립트 기초도 수록했다. 모두를 편리하게 할 모던 <b>자바</b>스크립트의 세계를 만나보자."},{"title": "Do it! HTML + CSS + <b>자바</b>스크립트 웹 표준의 정석 (한 권으로 끝내는 웹 기본 교과서)","link": "http://book.naver.com/bookdb/book_detail.php?bid=17764401","image": "https://bookthumb-phinf.pstatic.net/cover/177/644/17764401.jpg?type=m1&udate=20210513","author": "고경희","price": "30000","discount": "27000","publisher": "이지스퍼블리싱","pubdate": "20210122","isbn": "1163032212 9791163032212","description": "HTML5+CSS3 웹 표준의 정석》의 고경희 저자는 ‘HTML, CSS, <b>자바</b>스크립트를 한 권으로’ 배우고 싶다는 많은 독자의 요구를 모아 최신 경향을 반영한 이... 또한 최신 웹 표준 기술인 HTML5, CSS3, <b>자바</b>스크립트(ES6)를 기준으로 설명하며 책의 모든 내용을 압축한 최종 프로젝트 〈웹 사이트 만들기〉 PDF... "},{"title": "<b>자바</b> ORM 표준 JPA 프로그래밍 (에이콘 오픈 소스 프로그래밍 시리즈,스프링 데이터 예제 프로젝트로 배우는 전자정부 표준 데이터베이스 프레임워크)","link": "http://book.naver.com/bookdb/book_detail.php?bid=9252528","image": "https://bookthumb-phinf.pstatic.net/cover/092/525/09252528.jpg?type=m1&udate=20200721","author": "김영한","price": "43000","discount": "38700","publisher": "에이콘출판","pubdate": "20150728","isbn": "8960777331 9788960777330","description": "<b>자바</b> ORM 표준 JPA는 SQL 작성 없이 객체를 데이터베이스에 직접 저장할 수 있게 도와주고... 활용해서 <b>자바</b> 웹 애플리케이션을 효과적으로 개발하는 방법을 다룬다.\n\n다음... ■ 강의 링크: HTTPS://WWW.INFLEARN.COM/ROADMAPS/149\n■ 온라인 강의 목록\n-<b>자바</b> ORM 표준 JPA 프로그래밍... "},{"title": "Do it! <b>자바</b>스크립트 + 제이쿼리 입문 (155개 예제로 기본 잡고, 반응형 웹부터 실무 활용 플러그인까지!)","link": "http://book.naver.com/bookdb/book_detail.php?bid=13457579","image": "https://bookthumb-phinf.pstatic.net/cover/134/575/13457579.jpg?type=m1&udate=20200916","author": "정인용","price": "20000","discount": "18000","publisher": "이지스퍼블리싱","pubdate": "20180406","isbn": "1163030031 9791163030034","description": "<b>자바</b>스크립트, 제이쿼리의 기본부터 실전에 필요한 핵심까지 모두 담았다!\n‘두잇 시리즈 최고 작품’이라 평가받은 책! 전면 개정판으로 더욱 알차게... <b>자바</b>스크립트를 1도 모르겠다면? 프런트엔드 실무 교육 경력 10년 강사가 엄선한 155개의 예제로 기본부터 실무 활용까지 완벽하게 대비하세요. 실제... "},{"title": "이것이 <b>자바</b>다 (신용권의 Java 프로그래밍 정복)","link": "http://book.naver.com/bookdb/book_detail.php?bid=8589375","image": "https://bookthumb-phinf.pstatic.net/cover/085/893/08589375.jpg?type=m1&udate=20200516","author": "신용권","price": "30000","discount": "27000","publisher": "한빛미디어","pubdate": "20150105","isbn": "8968481474 9788968481475","description": "『이것이 <b>자바</b>다』은 15년 이상 <b>자바</b> 언어를 교육해온 <b>자바</b> 전문강사의 노하우를 아낌 없이 담아낸 <b>자바</b> 입문서이다. <b>자바</b> 입문자를 배려한 친절한 설명과 배려로 1장에 풀인원 설치 방법을 제공하여 쉽게 학습환경을 구축할 수 있다. 또한 중급 개발자로 나아가기 위한 람다식(14장), JAVAFX(17장), NIO(18... "},{"title": "애플리케이션 프로그래밍 with <b>자바</b>(아파치 카프카) (카프카의 개념부터 스트림즈, 커넥트, 스프링 카프카까지)","link": "http://book.naver.com/bookdb/book_detail.php?bid=18896970","image": "https://bookthumb-phinf.pstatic.net/cover/188/969/18896970.jpg?type=m1&udate=20210420","author": "최원영","price": "32000","discount": "28800","publisher": "비제이퍼블릭","pubdate": "20210414","isbn": "1165920549 9791165920548","description": "아파치 카프카 애플리케이션 개발을 위한 「실전 가이드」\n아파치 카프카란 무엇일까? 카프카 애플리케이션은 어떻게 만들까? 데이터 파이프라인을 만들기 위해 어떤 카프카 라이브러리를 사용해야 할까? 클라우드 기반 아파치 카프카는 어떤 기능을 가지고 있을까?\n이 책은 아파치 카프카의 기본적인... "},{"title": "<b>자바</b>스크립트는 왜 그 모양일까? (더글러스 크락포드가 알려주는 위험한 <b>자바</b>스크립트를 안전하게 사용하는 법)","link": "http://book.naver.com/bookdb/book_detail.php?bid=16358145","image": "https://bookthumb-phinf.pstatic.net/cover/163/581/16358145.jpg?type=m1&udate=20210509","author": "더글러스 크락포드","price": "28000","discount": "25200","publisher": "인사이트","pubdate": "20200525","isbn": "8966262597 9788966262595","description": "<b>자바</b>스크립트를 대하는 방법과 <b>자바</b>스크립트로 생각하는 방법을 알려준다!이 책은 <b>자바</b>스크립트라는 언어 자체에 대해 모든 개발자가 알아야 할 것들을 다룬다. 특히 <b>자바</b>스크립트를 철저하게 재평가하여 <b>자바</b>스크립트는 어떻게 동작하며, 어떻게 더 나은 언어가 될 수 있는지, 그리고 어떻게 더 잘 사용될 수... "}]})
+    </script> -->
+</head>
+<body>
+    <button id='btn'>가져오기</button>
+    <div id='sel'>
+        
+    </div>
+</body>
+</html>
